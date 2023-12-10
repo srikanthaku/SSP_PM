@@ -1,0 +1,395 @@
+/* Enter your custom styles here */
+
+/* custom font declare */
+@font-face {
+    src:
+        url("util/Fonts/SWCC-2-Regular.ttf") format("truetype");
+    font-family: 'SWCC-2-Regular';
+}
+
+@font-face {
+    src:
+        url("../../webapp/util/Fonts/SWCC-3-Medium.ttf") format("truetype");
+    font-family: 'SWCC-3-Medium';
+}
+
+@font-face {
+    src:
+        url("../../webapp/util/Fonts/SWCC-4-Bold.ttf") format("truetype");
+    font-family: 'SWCC-4-Bold';
+}
+
+/* custom font ends here */
+
+/* App homepage */
+.ssp-apphomepage .sapFDynamicPageContent,
+.ssp-apphomepage .sapFDynamicPageContentFitContainer {
+    padding: 0px;
+}
+
+.module-tile {
+    padding-top: 5rem !important;
+}
+
+.welcome-title h4 {
+    background: #ffffff;
+    text-align: center;
+    font-size: 2rem;
+    font-family: 'SWCC-4-Bold';
+    line-height: 3.5rem !important;
+    border: none !important;
+    font-weight: bold !important;
+    color: #004687 !important;
+}
+
+.ssp-module {
+    -webkit-box-shadow: 0 0 3px 0px #004687;
+    -moz-box-shadow: 0 0 3px 0px #004687;
+    box-shadow: 0 0 3px 0px #004687;
+    background: #ffffff;
+    border: 1px solid #004687;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #004687;
+}
+
+.ssp-module .sapMImageContentImageIcon.sapUiIcon {
+    font-size: 2.5rem;
+}
+
+/* Button css */
+.swcc-pmy-btn .sapMBtnDefault {
+    Background-color: #004687;
+    color: #FFFFFF;
+    margin-top: 1px;
+}
+
+.swcc-sec-btn .sapMBtnReject {
+    Background-color: #ff0000;
+}
+
+/* Button css ends here */
+/* Layout css starts here*/
+.ssp-hbox .sapMFlexItem {
+    background: #FFFFFF;
+    border-radius: 10px;
+}
+
+.ssp-page .sapFDynamicPageContentFitContainer,
+.ssp-homepage .ssp-tile,
+.ssp-page .sapFDynamicPageContentFitContainerFooterVisible {
+    padding: 0 0 4rem 0 !important;
+    background: #ffffff;
+    border: 1px solid #4b84b396;
+    border-radius: 10px 10px 0px 0px;
+    height: fit-content;
+}
+
+.ssp-page .sapFDynamicPageContentFitContainer {
+    margin: 1rem 2rem 0rem 2rem;
+}
+
+.ssp-form-bg .sapUiForm {
+    /*background: #FFFFFF;
+    min-height: 35vh;*/
+    border-radius: 10px 10px 0 0;
+
+}
+
+
+.ssp-tlbr-title {
+    display: block;
+    width: 100%;
+
+}
+
+.ssp-tlbr-title span {
+    display: flex;
+    color: #0066cc;
+    font-family: 'SWCC-4-Bold';
+}
+
+.ssp-tlbr-title span:after {
+    color: #0066CC;
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid #0066cc;
+    margin: 0.7rem;
+}
+
+
+/* Layout css ends here */
+.ssp-form-bg .sapUiFormTitle,
+.sapMTBStandard.ssp-title {
+    background: #004687;
+    color: #fff;
+    border-radius: 10px 10px 5px 5px;
+    height: fit-content;
+    font-family: 'SWCC-4-Bold';
+}
+
+.ssp-title .sapMBtnIcon,
+.ssp-title .sapMTitle {
+    color: #ffffff;
+}
+
+.ssp-form-bg .sapMInput .sapMInputBaseContentWrapper,
+.ssp-form-bg .sapMInputBase .sapMInputBaseInner,
+.ssp-form-bg .sapMInputBaseContentWrapper,
+.ssp-form-bg .sapMSltDefault {
+    background: #EFF0F2;
+    border: 0px;
+    height: 2rem;
+    font-family: 'SWCC-3-Medium';
+
+}
+
+.ssp-form-bg .sapMLabel {
+    font-family: 'SWCC-3-Medium';
+}
+
+.ssp-form-txtarea .sapMInputBaseContentWrapper {
+    background: #EFF0F2;
+    border: 0px;
+    height: auto;
+}
+
+.ssp-form-txtarea .sapMInputBase:not(.sapMFocus) .sapMInputBaseContentWrapper:not(.sapMInputBaseReadonlyWrapper):not(.sapMInputBaseContentWrapperState):not(.sapMInputBaseDisabledWrapper):hover,
+.ssp-form-txtarea .sapMInputBaseContentWrapper:not(.sapMInputBaseReadonlyWrapper):not(.sapMInputBaseContentWrapperState):not(.sapMInputBaseDisabledWrapper):active {
+    background: #EFF0F2;
+    border: 0px;
+    height: auto;
+    box-shadow: 2px 2px 5px 1px #729ac39e;
+}
+
+.ssp-form-txtarea .sapUiFormResGridCont {
+    padding-top: 0px;
+}
+
+.sapMPopover {
+    border: 1px solid #EFF0F2;
+}
+
+.ssp-form-bg .sapMInputBaseDisabled {
+    opacity: 1;
+}
+
+.ssp-form-bg .sapMInputBaseIconContainer .sapUiIcon.sapMInputBaseIcon {
+    line-height: 1.9rem;
+    font-size: 18px !important;
+}
+
+.ssp-form-bg .sapMInputBaseContentWrapper:not(.sapMInputBaseReadonlyWrapper):not(.sapMInputBaseContentWrapperState):not(.sapMInputBaseDisabledWrapper):hover,
+.ssp-form-bg .sapMSltHoverable:not(.sapMSltState):not(.sapMSltIconOnly):hover {
+    background: #EFF0F2;
+    border: 0px;
+    height: 2rem;
+    box-shadow: 2px 2px 5px 1px #729ac39e;
+}
+
+.btn-proceed .sapMBtnInner.sapMBtnAccept {
+    background-color: #004687;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.btn-cancel .sapMBtnInner.sapMBtnReject {
+    background-color: #B03636;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.sapMTBStandard {
+    border-bottom: 0px;
+}
+
+.ssp-request-Table .sapMTableTH {
+    background: #004687;
+    border: 1px solid #e5e5e5;
+    vertical-align: middle;
+}
+
+.ssp-request-Table .sapMListTblRow .sapMListTblCell {
+    border: 1px solid #e5e5e5;
+    vertical-align: middle;
+
+}
+
+.ssp-request-Table .sapMColumnHeader .sapMText {
+    color: #fff;
+    font-weight: bold;
+}
+
+.ssp-open {
+    background: rgb(187, 249, 18);
+    background: linear-gradient(180deg, rgba(187, 249, 18, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    border: 1px solid rgb(187, 249, 18);
+}
+
+.ssp-progress {
+    background: rgb(231, 101, 0);
+    background: linear-gradient(180deg, rgba(231, 101, 0, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    border: 1px solid rgb(231, 101, 0);
+}
+
+.ssp-done {
+    background: rgb(150, 150, 150);
+    background: linear-gradient(180deg, rgba(150, 150, 150, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    border: 1px solid rgb(150, 150, 150);
+}
+
+.ssp-newservice .sapMGTContent {
+    background: #4B84B3;
+}
+
+.ssp-viewservice .sapMGTContent {
+    background: #0066cc45;
+}
+
+.ssp-newservice .sapMImageContentImageIcon.sapUiIcon,
+.ssp-viewservice .sapMImageContentImageIcon.sapUiIcon {
+    color: #ffffff;
+    font-size: 2.5rem;
+    line-height: 8rem;
+}
+
+/*.ssp-vtl {
+    border: 1px solid #0066cc;
+    border-radius: 10px 10px 0px 0px;
+}*/
+
+/*.ssp-vtl .sapUiVltCell {
+    background: #FFFFFF;
+    padding: 1rem;
+
+}*/
+
+/*.ssp-tile {
+    border: 1px solid #e5e5e5;
+    border-radius: 10px 10px 0px 0px;
+
+}*/
+
+/* common css ends here */
+.swcc-tabbar,
+.swcc-tabbar>.sapUiHLayoutChildWrapper {
+    display: block !important;
+}
+
+.ssp-hdr-cnt .sapMFlexItemAlignAuto {
+    min-width: 20% !important;
+}
+
+.ssp-hdr-cnt .sapMNCValue {
+    display: -webkit-box !important;
+    font-weight: bold !important;
+    font-size: 1rem !important;
+}
+
+.ssp-hdr-cnt .sapMNCLargeFontSize {
+    font-size: 1rem;
+}
+
+.ssp-hdr-cnt .sapMNCIndScale.sapMNCLargeFontSize {
+    padding: 0px 5px 0px 5px;
+}
+
+.ssp-hdr-cnt .sapMNCIndScale.sapMNCLargeFontSize .sapMNCScale {
+    margin-top: 0px;
+}
+
+.ssp-hdr-cnt .sapMNCIconImage {
+    color: #840606;
+    font-size: 1rem;
+    justify-content: left;
+}
+
+/* Detail page CSS */
+.ssp-dtl-title {
+    font-weight: bold;
+    color: #004687;
+}
+
+.SSP-objectpage .sapUxAPObjectPageSectionHeader {
+    display: none;
+}
+
+.SSP-objectpage .sapMTB {
+    padding: 0px;
+}
+
+.ssp-processflow .sapSuiteUiCommonsMicroProcessFlowItem {
+    width: 100px;
+    height: 100px;
+}
+
+.ssp-processflow .sapUiIcon.sapSuiteUiCommonsMicroProcessFlowItemIcon {
+    font-size: 2rem !important;
+}
+
+.ssp-processflow .sapSuiteUiCommonsMicroProcessFlowContent {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+}
+
+.SSP-objectpage.sapUxAPObjectPageLayout {
+    width: 93%;
+    height: 95%;
+}
+
+
+.cancel-link {
+    color: #B03636;
+}
+
+.ssp-object-bg {
+    background: #FFFFFF;
+}
+
+/* Detail page css ends here */
+
+
+
+.ssp-table-box .ssp-tlbr-title {
+    font-weight: bold;
+    padding: 1rem 0.75rem;
+}
+
+
+/* comment section css */
+.ssp-comment.sapSuiteUiCommonsTimeline {
+    max-width: 1200px;
+}
+
+.ssp-cmt .sapMInputBaseContentWrapper {
+    background: #EFF0F2;
+    border: 0px;
+    border: 1px solid #0066cc;
+}
+
+.ssp-cmt .sapMInputBaseContentWrapper:hover {
+    border-color: #0854a0;
+    border: 1px solid #0066cc;
+    box-shadow: 2px 2px 5px 1px #729ac39e;
+    background: #ffffff;
+}
+
+.ssp-send {
+    float: right;
+    margin-right: 1.5rem;
+}
+
+.ssp-comment .sapSuiteUiCommonsTimelineScroll {
+    overflow: auto !important;
+    height: auto !important;
+}
+
+/* PM css **/
+
+.lbl-attach.sapMLabel {
+    color: #0066cc;
+    font-weight: bold;
+}
