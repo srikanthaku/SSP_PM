@@ -9,18 +9,21 @@ sap.ui.define([
 		"use strict";
 		return BaseController.extend("com.swcc.pm.SSP_PM.controller.ScmCreateRequest", {
 			onInit: function () {
-
+				debugger;
 				this.oRouter = this.getRouter();
+				this.getRouter().getRoute("PMRequest").attachPatternMatched(this._onObjectMatched, this);
 				this._createItemDataModel();
-				this.PMCreateaRequestAPI();
+
+			},
+			_onObjectMatched: function () {
+				this._createItemDataModel();
 
 			},
 			_createItemDataModel: function () {
 				this.getModel().setData({
 					busy: false,
-					recognitionAlreadyStarted: false,
 					PMCreateRequest: {
-						Header: null,
+						Header: {},
 						Attachment: []
 					}
 				});
@@ -28,24 +31,45 @@ sap.ui.define([
 			PMCreateaRequestAPI: function (oPayload) {
 				debugger;
 
-				var oPayload = {
-					"NotifType": "ZT",
-					"Equipment": "10000131",
-					"Customer": "300113",
-					"Descript": "TEST STS NOTIFICATION FOR INSTRUMENT",
-					"NotifText": {
-						"Line": "Testing long text"
-					}
-				};
-
+				// var oPayload = {
+				// 	"NotifType": "ZT",
+				// 	"Equipment": "10000131",
+				// 	"Customer": "300113",
+				// 	"Descript": "TEST STS NOTIFICATION FOR INSTRUMENT",
+				// 	"NotifText": {
+				// 		"Line": "Testing long text"
+				// 	}
+				// };
+				this.getModel().setProperty("/busy", true);
 				this.getAPI.oDataAPICall(this.getOwnerComponent().getModel("ZSSP_COMMON_SRV"), 'create', '/ServNotificationSet',
 						oPayload)
 					.then(function (oResponse) {
+						this._handleMessageBoxProceed(`Service Request has been created : ${oResponse.Notificat} `);
 						debugger;
 						this.getModel().setProperty("/PMCreateRequest/Header", oResponse.results);
-
+						this.getModel().setProperty("/busy", false);
+					}.bind(this)).catch(function (error) {
+						this.getModel().setProperty("/busy", false);
+						console.log("dswdfwsfwe");
 					}.bind(this));
 
+			},
+			_handleMessageBoxProceed: function (sMessage) {
+				var that = this;
+				sap.m.MessageBox.success(sMessage, {
+					icon: MessageBox.Icon.SUCCESS,
+					title: "Success",
+					actions: [MessageBox.Action.OK],
+					emphasizedAction: MessageBox.Action.YES,
+					onClose: function (oAction) {
+						if (oAction == "OK") {
+							that.onPresshomepage();
+						}
+					},
+				});
+			},
+			onPresshomepage: function () {
+				this.getOwnerComponent().getRouter().navTo("HomePage");
 			},
 			handleBackPress: function () {
 				var oHistory, sPreviousHash;
@@ -59,7 +83,8 @@ sap.ui.define([
 
 			},
 			onSaveRequest: function () {
-				var oPayload = this.getModel().getProperty("/PMCreateRequest/Header");
+				debugger;
+				var oPayload = this.getModel().getProperty("/PMCreateRequest/Header/");
 				this.PMCreateaRequestAPI(oPayload);
 
 			},
