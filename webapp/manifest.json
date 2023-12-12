@@ -179,6 +179,13 @@
 					"target": [
 						"PMRequest"
 					]
+				},
+				{
+					"name": "PMRequestView",
+					"pattern": "PMRequestView",
+					"target": [
+						"PMRequestView"
+					]
 				}
 
 			],
@@ -242,7 +249,7 @@
 					"viewType": "XML",
 					"transition": "slide",
 					"clearControlAggregation": false,
-					"viewName": "PMViewServiceRequest"
+					"viewName": "PMViewRequest"
 				},
 				"notFound": {
 					"viewName": "NotFound"

@@ -19,7 +19,7 @@ sap.ui.define([
 				if (sPreviousHash !== undefined) {
 					window.history.go(-1);
 				} else {
-					this.getRouter().navTo("AppHomePage", {}, true);
+					this.getRouter().navTo("HomePage", {}, true);
 				}
 
 			},
