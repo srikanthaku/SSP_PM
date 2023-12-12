@@ -36,7 +36,7 @@ sap.ui.define([
 			},
 
 			onPresshomepage: function () {
-				this.getOwnerComponent().getRouter().navTo("AppHomePage");
+				this.getOwnerComponent().getRouter().navTo("HomePage");
 			},
 			_handleMessageBoxProceed: function (sMessage) {
 				var that = this;

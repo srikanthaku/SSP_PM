@@ -10,8 +10,17 @@
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
 		"dataSources": {
-			"ZCDSV_SS_SERVICES_F4_CDS": {
-				"uri": "/sap/opu/odata/sap/ZCDSV_SS_SERVICES_F4_CDS/",
+		"ZSSP_USER_SRV": {
+				"uri": "/sap/opu/odata/sap/ZSSP_USER_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+
+			},
+			"ZSSP_COMMON_SRV": {
+				"uri": "/sap/opu/odata/sap/ZSSP_COMMON_SRV/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
@@ -84,6 +93,14 @@
 					"bundleName": "com.swcc.pm.SSP_PM.i18n.i18n"
 				}
 			},
+			"ZSSP_USER_SRV": {
+				"dataSource": "ZSSP_USER_SRV",
+				"preload": true
+			},
+			"ZSSP_COMMON_SRV": {
+				"dataSource": "ZSSP_COMMON_SRV",
+				"preload": true
+			},
 			"": {
 				"type": "sap.ui.model.json.JSONModel",
 				"settings": {},
@@ -150,13 +167,7 @@
 					"target": [
 						"HomePage"
 					]
-				}, {
-					"name": "AppHomePage",
-					"pattern": "AppHomePage",
-					"target": [
-						"AppHomePage"
-					]
-				}, {
+				},  {
 					"name": "SlaCreation",
 					"pattern": "SlaCreation",
 					"target": [
@@ -214,12 +225,7 @@
 					"clearControlAggregation": false,
 					"viewName": "HomePage"
 				},
-				"AppHomePage": {
-					"viewType": "XML",
-					"transition": "slide",
-					"clearControlAggregation": false,
-					"viewName": "AppHomePage"
-				},
+			
 				"SlaCreation": {
 					"viewType": "XML",
 					"transition": "slide",
