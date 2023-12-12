@@ -26,7 +26,6 @@ sap.ui.define([
 				});
 			},
 			PMCreateaRequestAPI: function (oPayload) {
-				debugger;
 
 				var oPayload = {
 					"NotifType": "ZT",
@@ -41,7 +40,7 @@ sap.ui.define([
 				this.getAPI.oDataAPICall(this.getOwnerComponent().getModel("ZSSP_COMMON_SRV"), 'create', '/ServNotificationSet',
 						oPayload)
 					.then(function (oResponse) {
-						debugger;
+
 						this.getModel().setProperty("/PMCreateRequest/Header", oResponse.results);
 
 					}.bind(this));
