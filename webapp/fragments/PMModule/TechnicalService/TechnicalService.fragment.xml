@@ -17,7 +17,7 @@
 					</items>
 				</ComboBox>
 				<Label text="{i18n>quantity}" required="true"/>
-				<Input id="qty" placeholder="" showSuggestion="" showValueHelp="" valueHelpRequest=""/>
+				<Input id="qty" value="{/PMCreateRequest/Header/}" placeholder="" showSuggestion="" showValueHelp="" valueHelpRequest=""/>
 				<Label text="{i18n>baseunit}" required="false"/>
 				<Input id="baseunit" placeholder="" showSuggestion="" showValueHelp="" valueHelpRequest=""/>
 				<Label text="{i18n>priority}" required="true"/>

@@ -12,16 +12,40 @@ sap.ui.define([
 
 				this.oRouter = this.getRouter();
 				this._createItemDataModel();
+				this.PMCreateaRequestAPI();
 
 			},
 			_createItemDataModel: function () {
 				this.getModel().setData({
 					busy: false,
 					recognitionAlreadyStarted: false,
-					MarineTransportation: {
-						itemData: []
+					PMCreateRequest: {
+						Header: {},
+						Attachment: []
 					}
 				});
+			},
+			PMCreateaRequestAPI: function (oPayload) {
+				debugger;
+
+				var oPayload = {
+					"NotifType": "ZT",
+					"Equipment": "10000131",
+					"Customer": "300113",
+					"Descript": "TEST STS NOTIFICATION FOR INSTRUMENT",
+					"NotifText": {
+						"Line": "Testing long text"
+					}
+				};
+
+				this.getAPI.oDataAPICall(this.getOwnerComponent().getModel("ZSSP_COMMON_SRV"), 'create', '/ServNotificationSet',
+						oPayload)
+					.then(function (oResponse) {
+						debugger;
+						this.getModel().setProperty("/PMCreateRequest/Header", oResponse.results);
+
+					}.bind(this));
+
 			},
 			handleBackPress: function () {
 				var oHistory, sPreviousHash;
@@ -34,7 +58,11 @@ sap.ui.define([
 				}
 
 			},
+			onSaveRequest: function () {
+				var oPayload = this.getModel().getProperty("/PMCreateRequest/Header");
+				this.PMCreateaRequestAPI(oPayload);
 
+			},
 			onback: function () {
 				this.getOwnerComponent().getTargets().display("LandingView");
 
