@@ -20,7 +20,7 @@ sap.ui.define([
 					busy: false,
 					recognitionAlreadyStarted: false,
 					PMCreateRequest: {
-						Header: {},
+						Header: null,
 						Attachment: []
 					}
 				});
