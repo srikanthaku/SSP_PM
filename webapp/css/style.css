@@ -3,7 +3,7 @@
 /* custom font declare */
 @font-face {
     src:
-        url("util/Fonts/SWCC-2-Regular.ttf") format("truetype");
+        url("/util/Fonts/SWCC-2-Regular.ttf") format("truetype");
     font-family: 'SWCC-2-Regular';
 }
 
@@ -80,11 +80,12 @@
 .ssp-page .sapFDynamicPageContentFitContainer,
 .ssp-homepage .ssp-tile,
 .ssp-page .sapFDynamicPageContentFitContainerFooterVisible {
-    padding: 0 0 4rem 0 !important;
+    padding: 0 0 2rem 0 !important;
     background: #ffffff;
     border: 1px solid #4b84b396;
     border-radius: 10px 10px 0px 0px;
     height: fit-content;
+    margin-bottom: 4rem;
 }
 
 .ssp-page .sapFDynamicPageContentFitContainer {

@@ -1,10 +1,11 @@
 sap.ui.define([
 		"./BaseController",
 		"sap/ui/model/json/JSONModel",
-		"sap/ui/core/routing/History"
+		"sap/ui/core/routing/History",
+		"sap/m/MessageBox"
 	],
 
-	function (BaseController, JSONModel, History) {
+	function (BaseController, JSONModel, History, MessageBox) {
 		"use strict";
 		return BaseController.extend("com.swcc.pm.SSP_PM.controller.ScmCreateRequest", {
 			onInit: function () {
@@ -35,6 +36,26 @@ sap.ui.define([
 			},
 			onback: function () {
 				this.getOwnerComponent().getTargets().display("LandingView");
+
+			},
+			onProceed: function () {
+				//	this.getOwnerComponent().getTargets().display("DetailView");
+				this._handleMessageBoxProceed("Your Service Request has been generated : 1945676");
+			},
+			_handleMessageBoxProceed: function (sMessage) {
+				var that = this;
+				sap.m.MessageBox.success(sMessage, {
+					icon: MessageBox.Icon.SUCCESS,
+					title: "Success",
+					actions: [MessageBox.Action.OK],
+					emphasizedAction: MessageBox.Action.YES,
+					onClose: function (oAction) {
+						if (oAction == "OK") {
+
+							that.getRouter().navTo("HomePage", {}, true);
+						}
+					},
+				});
 
 			},
 			onAddItemsPress: function (oEvent) {

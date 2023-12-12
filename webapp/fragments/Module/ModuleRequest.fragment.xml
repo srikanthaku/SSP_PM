@@ -45,7 +45,8 @@
 				</Toolbar>
 			</fm:toolbar>
 			<Label text="{i18n>Service}" required="true"/>
-			<ComboBox id="dew" width="100%" valueState="None" enabled="true">
+			<Input value="Plant Maintenance" enabled="false" width="100%"/>
+			<!--	<ComboBox id="dew" width="100%" valueState="None" enabled="true">
 				<items>
 					<core:Item key="2" text="Finance"/>
 					<core:Item key="3" text="Human Resource"/>
@@ -53,7 +54,7 @@
 					<core:Item key="5" text="Plant Maintainance"/>
 					<core:Item key="6" text="Supply Chain"/>
 				</items>
-			</ComboBox>
+			</ComboBox>-->
 			<Label text="{i18n>SelectServiceType}" required="true"/>
 			<!--<ComboBox id="idPsroductType" width="100%" valueState="None" placeholder="Select" selectedKey="{TabDetailsModel>/TabData/ProdType}"-->
 			<!--	items="{TabDetailsModel>/ProductTypeSet}">-->
@@ -61,12 +62,10 @@
 			<!--</ComboBox>-->
 			<ComboBox id="SD" selectionChange="onSelect" width="100%" valueState="None" enabled="true">
 				<items>
-					<core:Item key="1" text="Accounts Payable_Records Process Invoice"/>
-					<core:Item key="2" text="Accounts Payable_Manage Petty Cash"/>
-					<core:Item key="3" text="Test1"/>
-					<core:Item key="4" text="Test2"/>
-					<core:Item key="5" text="Test3"/>
-					<core:Item key="6" text="Test4"/>
+					<core:Item key="1" text="Heavy Maintenance"/>
+					<core:Item key="2" text="Workshop Operations"/>
+					<core:Item key="3" text="Technical Support Services"/>
+					<core:Item key="4" text="Other Services"/>
 				</items>
 			</ComboBox>
 			<Label text="{i18n>SelectSubService}" required="true"/>
@@ -74,7 +73,7 @@
 				items="{TabDetailsModel>/ProductTypeSet}">
 				<core:ListItem key="{key}" text="{text}"/>
 			</ComboBox>
-			<Button text="Search" type="Default" press="onSearch" width="65%" class="sapUiTinyMarginBegin sapUiContentPadding swcc-pmy-btn"/>
+			<!--	<Button text="Search" type="Default" press="onSearch" width="65%" class="sapUiTinyMarginBegin sapUiContentPadding swcc-pmy-btn"/>-->
 		</fm:SimpleForm>
 	</HBox>
 </core:FragmentDefinition>

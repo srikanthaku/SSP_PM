@@ -5,7 +5,7 @@ sap.ui.define([
 
 	function (BaseController, JSONModel) {
 		"use strict";
-		return BaseController.extend("com.swcc.Template.controller.HomePage", {
+		return BaseController.extend("com.swcc.pm.SSP_PM.controller.HomePage", {
 			onInit: function () {
 				debugger;
 				this.oRouter = this.getRouter();
