@@ -49,8 +49,8 @@ sap.ui.define([
 						this.getModel().setProperty("/PMCreateRequest/Header", oResponse.results);
 						this.getModel().setProperty("/busy", false);
 					}.bind(this)).catch(function (error) {
+						MessageBox.error(error.responseText);
 						this.getModel().setProperty("/busy", false);
-						console.log("dswdfwsfwe");
 					}.bind(this));
 
 			},
