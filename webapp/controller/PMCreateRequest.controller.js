@@ -7,7 +7,7 @@ sap.ui.define([
 
 	function (BaseController, JSONModel, History, MessageBox) {
 		"use strict";
-		return BaseController.extend("com.swcc.pm.SSP_PM.controller.ScmCreateRequest", {
+		return BaseController.extend("com.swcc.pm.SSP_PM.controller.PMCreateRequest", {
 			onInit: function () {
 
 				this.oRouter = this.getRouter();
