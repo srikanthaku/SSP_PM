@@ -10,14 +10,13 @@
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
 		"dataSources": {
-		"ZSSP_USER_SRV": {
+			"ZSSP_USER_SRV": {
 				"uri": "/sap/opu/odata/sap/ZSSP_USER_SRV/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
 					"localUri": "localService/metadata.xml"
 				}
-
 			},
 			"ZSSP_COMMON_SRV": {
 				"uri": "/sap/opu/odata/sap/ZSSP_COMMON_SRV/",
@@ -48,7 +47,6 @@
 			"version": "1.40.12"
 		}
 	},
-
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
@@ -65,7 +63,6 @@
 			"phone": true
 		}
 	},
-
 	"sap.ui5": {
 		"flexEnabled": false,
 		"rootView": {
@@ -94,7 +91,7 @@
 				}
 			},
 			"ZSSP_USER_SRV": {
-			    "settings": {
+				"settings": {
 					"defaultOperationMode": "Server",
 					"defaultBindingMode": "TwoWay",
 					"defaultCountMode": "Request",
@@ -114,9 +111,11 @@
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		},
 		"routing": {
 			"config": {
@@ -133,53 +132,64 @@
 					]
 				}
 			},
-			"routes": [{
+			"routes": [
+				{
 					"name": "Routeapp",
 					"pattern": "",
-					"target": ["Targetapp"]
-				}, {
+					"target": [
+						"Targetapp"
+					]
+				},
+				{
 					"name": "ModuleSelect",
 					"pattern": "ModuleSelect",
 					"target": [
 						"ModuleSelect"
 					]
-				}, {
+				},
+				{
 					"name": "DetailView",
 					"pattern": "",
 					"target": [
 						"DetailView"
 					]
-				}, {
+				},
+				{
 					"name": "ViewRequest",
 					"pattern": "ViewRequest",
 					"target": [
 						"ViewRequest"
 					]
-				}, {
+				},
+				{
 					"name": "LandingView",
 					"pattern": "LandingView",
 					"target": [
 						"LandingView"
 					]
-				}, {
+				},
+				{
 					"name": "CustRegistration",
 					"pattern": "",
 					"target": [
 						"CustRegistration"
 					]
-				}, {
+				},
+				{
 					"name": "HomePage",
 					"pattern": "HomePage",
 					"target": [
 						"HomePage"
 					]
-				},  {
+				},
+				{
 					"name": "SlaCreation",
 					"pattern": "SlaCreation",
 					"target": [
 						"SlaCreation"
 					]
-				}, {
+				},
+				{
 					"name": "PMRequest",
 					"pattern": "PMRequest",
 					"target": [
@@ -193,7 +203,6 @@
 						"PMRequestView"
 					]
 				}
-
 			],
 			"targets": {
 				"Targetapp": {
@@ -238,7 +247,6 @@
 					"clearControlAggregation": false,
 					"viewName": "HomePage"
 				},
-			
 				"SlaCreation": {
 					"viewType": "XML",
 					"transition": "slide",
@@ -264,7 +272,7 @@
 		}
 	},
 	"sap.platform.abap": {
-		"uri": "/sap/bc/ui5_ui5/sap/zssp_app/webapp",
+		"uri": "/sap/bc/ui5_ui5/sap/zssp_pm/webapp",
 		"_version": "1.1.0"
 	}
 }

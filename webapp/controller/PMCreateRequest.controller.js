@@ -7,7 +7,7 @@ sap.ui.define([
 
 	function (BaseController, JSONModel, History, MessageBox) {
 		"use strict";
-		return BaseController.extend("com.swcc.pm.SSP_PM.controller.ScmCreateRequest", {
+		return BaseController.extend("com.swcc.pm.SSP_PM.controller.PMCreateRequest", {
 			onInit: function () {
 				debugger;
 				this.oRouter = this.getRouter();
@@ -29,7 +29,6 @@ sap.ui.define([
 				});
 			},
 			PMCreateaRequestAPI: function (oPayload) {
-				debugger;
 
 				var oPayload = {
 					"NotifType": "ZT",
@@ -45,7 +44,6 @@ sap.ui.define([
 						oPayload)
 					.then(function (oResponse) {
 						this._handleMessageBoxProceed(`Service Request has been created : ${oResponse.Notificat} `);
-						debugger;
 						this.getModel().setProperty("/PMCreateRequest/Header", oResponse.results);
 						this.getModel().setProperty("/busy", false);
 					}.bind(this)).catch(function (error) {
