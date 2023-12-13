@@ -43,12 +43,7 @@ sap.ui.define([
 				this.getAPI.oDataAPICall(this.getOwnerComponent().getModel("ZSSP_COMMON_SRV"), 'create', '/ServNotificationSet',
 						oPayload)
 					.then(function (oResponse) {
-<<<<<<< HEAD
-
-=======
 						this._handleMessageBoxProceed(`Service Request has been created : ${oResponse.Notificat} `);
-						debugger;
->>>>>>> refs/remotes/origin/feature/superman
 						this.getModel().setProperty("/PMCreateRequest/Header", oResponse.results);
 						this.getModel().setProperty("/busy", false);
 					}.bind(this)).catch(function (error) {
