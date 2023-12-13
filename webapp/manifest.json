@@ -91,6 +91,12 @@
 				}
 			},
 			"ZSSP_USER_SRV": {
+			    "settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Request",
+					"useBatch": false
+				},
 				"dataSource": "ZSSP_USER_SRV",
 				"preload": true
 			},

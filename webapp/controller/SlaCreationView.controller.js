@@ -3,13 +3,12 @@ sap.ui.define([
 		"sap/ui/model/json/JSONModel",
 		"sap/ui/core/Fragment",
 		"sap/ui/Device",
-		"sap/m/MessageBox",
-		"sap/m/MessageToast"
+		"sap/m/MessageBox"
 	],
 	/**
 	 * @param {typeof sap.ui.core.mvc.Controller} Controller
 	 */
-	function (BaseController, JSONModel, Fragment, Device, MessageBox, MessageToast) {
+	function (BaseController, JSONModel, Fragment, Device, MessageBox) {
 		"use strict";
 		return BaseController.extend("com.swcc.pm.SSP_PM.controller.SlaCreationView", {
 
