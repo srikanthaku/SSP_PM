@@ -91,7 +91,7 @@
 				}
 			},
 			"ZSSP_USER_SRV": {
-			    "settings": {
+				"settings": {
 					"defaultOperationMode": "Server",
 					"defaultBindingMode": "TwoWay",
 					"defaultCountMode": "Request",
