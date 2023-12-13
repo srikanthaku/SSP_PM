@@ -83,7 +83,7 @@ sap.ui.define([
 				.then(function (oResponse) {
 					this._handleMessageBoxProceed(`Service Request has been created : ${oResponse.ReqID} `);
 					debugger;
-					this.getModel().setProperty("/PMCreateRequest/Header", oResponse.results);
+					this.getModel().setProperty("/CustomerRegistrationData/Header/", null);
 					this.getModel().setProperty("/busy", false);
 				}.bind(this)).catch(function (error) {
 					MessageBox.error(error.responseText);
@@ -105,7 +105,7 @@ sap.ui.define([
 			});
 		},
 		onPresshomepage: function () {
-			this.getOwnerComponent().getRouter().navTo("HomePage");
+			this.getOwnerComponent().getRouter().navTo("SlaCreation");
 		},
 		onback: function () {
 

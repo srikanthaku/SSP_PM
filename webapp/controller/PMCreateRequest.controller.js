@@ -31,15 +31,15 @@ sap.ui.define([
 			PMCreateaRequestAPI: function (oPayload) {
 				debugger;
 
-				// var oPayload = {
-				// 	"NotifType": "ZT",
-				// 	"Equipment": "10000131",
-				// 	"Customer": "300113",
-				// 	"Descript": "TEST STS NOTIFICATION FOR INSTRUMENT",
-				// 	"NotifText": {
-				// 		"Line": "Testing long text"
-				// 	}
-				// };
+				var oPayload = {
+					"NotifType": "ZT",
+					"Equipment": "10000131",
+					"Customer": "300113",
+					"Descript": "TEST STS NOTIFICATION FOR INSTRUMENT",
+					"NotifText": {
+						"Line": "Testing long text"
+					}
+				};
 				this.getModel().setProperty("/busy", true);
 				this.getAPI.oDataAPICall(this.getOwnerComponent().getModel("ZSSP_COMMON_SRV"), 'create', '/ServNotificationSet',
 						oPayload)
