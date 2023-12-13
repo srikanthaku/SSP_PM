@@ -13,7 +13,7 @@
 				<Label text="{i18n>street}" required="true"/>
 				<Input value="{CustomerRegistrationData/Header/Stras/}" type="text" placeholder="Enter Street" ariaLabelledBy="Inputcustomerstreet"/>
 				<Label text="{i18n>postalcode}" required="true"/>
-				<Input value="{/CustomerRegistrationData/Header/Pstlz/}" type="text" placeholder="Enter Postal Code"
+				<Input value="{/CustomerRegistrationData/Header/Pstlz/}" type="Number" placeholder="Enter Postal Code"
 					ariaLabelledBy="Inputcustomerpostalcode"/>
 				<Label text="{i18n>country}" required="true"/>
 				<ComboBox width="100%" valueState="None" selectionChange="onCountryChange" placeholder="Select Country"

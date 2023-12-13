@@ -31,25 +31,25 @@
 						<core:Item key="Urgent" text="Urgent"/>
 					</items>
 				</ComboBox>
+				<Label text="{i18n>maintenanceorder}" required="false"/>
+				<Input placeholder="Enter Maintenance Order" showSuggestion="" showValueHelp="" valueHelpRequest=""/>
+				<Label text="{i18n>plant}" required="true"/>
+				<ComboBox width="100%" change="onCheckPlantVal" selectionChange="onSelectPlant" valueState="None" placeholder="Select Plant"
+					selectedKey="{/PMCreateRequest/Header/Planplant/}" items="{/PMCreateRequest/PlantF4/}">
+					<core:Item key="{Plant}" text="{Plant} - {PlantName}"/>
+				</ComboBox>
+				<Label text="{i18n>equipment}"/>
+				<Input id="idCustName" enabled="{= ${/PMCreateRequest/Header/Planplant/} !== null}" required="true" width="100%"
+					placeholder="Enter Equipment" valueHelpOnly="true" showValueHelp="true" valueHelpRequest="onValueHelpRequest"
+					value="{HeaderDetailsModel>/CustomerName}"/>
 				<Label text="{i18n>workcenter}" required="true"/>
-				<ComboBox id="wrkcenter" width="100%" placeholder="Enter Work Center" selectedKey="{/PMCreateRequest/Header/PmWkctr/}" valueState="None">
+				<ComboBox id="wrkcenter" editable="false" width="100%" placeholder="Enter Work Center" selectedKey="{/PMCreateRequest/Header/PmWkctr/}"
+					valueState="None">
 					<items>
 						<core:Item key="Yes" text="Yes"/>
 						<core:Item key="No" text="No"/>
 					</items>
 				</ComboBox>
-				<Label text="{i18n>plant}" required="true"/>
-				<ComboBox id="plant" width="100%" selectedKey="{/PMCreateRequest/Header/Planplant/}" placeholder="Plant" valueState="None">
-					<items>
-						<core:Item key="Regular" text="Regular"/>
-						<core:Item key="Emergency" text="Emergency"/>
-						<core:Item key="Urgent" text="Urgent"/>
-					</items>
-				</ComboBox>
-				<Label text="{i18n>equipment}" required="true"/>
-				<Input placeholder="Enter Equipment" value="{/PMCreateRequest/Header/Equipment/}" showSuggestion="" showValueHelp="" valueHelpRequest=""/>
-				<Label text="{i18n>maintenanceorder}" required="false"/>
-				<Input placeholder="Enter Maintenance Order" showSuggestion="" showValueHelp="" valueHelpRequest=""/>
 				<Label text="{i18n>shortdescription}" required="true"/>
 				<Input placeholder="Allowed 40 Charcters" showSuggestion="" showValueHelp="" value="{/PMCreateRequest/Header/Descript/}" valueHelpRequest=""/>
 			</fm:content>
@@ -64,7 +64,7 @@
 			afterItemAdded="onFileAdded">
 			<upload:toolbar>
 				<OverflowToolbar>
-					<Label text="{i18n>Attachments}" class="lbl-attach" required="true"/>
+					<Label text="{i18n>Attachments}" class="lbl-attach"/>
 					<core:Icon id="idInfoIconLeave" src="sap-icon://message-information" size="1rem" height="3rem" tooltip="{i18n>uploadtooltip}"></core:Icon>
 					<ToolbarSpacer/>
 				</OverflowToolbar>

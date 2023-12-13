@@ -9,9 +9,63 @@ sap.ui.define([
 		return BaseController.extend("com.swcc.pm.SSP_PM.controller.ModuleSelect", {
 			onInit: function () {
 				this.oRouter = this.getRouter();
+				this._createHeaderModel();
+				this.byId("idService").setSelectedKey("ZSSM");
+				this.getServiceTypeDD();
 				// this.testCPI_API();
 
 			},
+			_createHeaderModel: function () {
+				this.getModel().setData({
+					busy: false,
+					ModuleSearch: {
+						Header: {},
+						SelectServiceType: [],
+						SelectSubServiceType: []
+					}
+				});
+			},
+			getServiceTypeDD: function () {
+
+				var sProductTypeFilter = new sap.ui.model.Filter({
+					path: "ProductType",
+					operator: sap.ui.model.FilterOperator.EQ,
+					value1: this.byId("idService").getSelectedKey()
+				});
+
+				var Filter = [];
+				Filter.push(sProductTypeFilter);
+				this.getModel().setProperty("/busy", true);
+				this.getAPI.oDataReadAPICall(this.getOwnerComponent().getModel("ZSSP_COMMON_SRV"), 'read', '/ZCDSV_PRODUCTTYPEVH/', null, Filter)
+					.then(function (oResponse) {
+						this.getModel().setProperty("/ModuleSearch/SelectServiceType/", oResponse.results);
+						this.getModel().setProperty("/busy", false);
+					}.bind(this)).catch(function (error) {
+						MessageBox.error(error.responseText);
+						this.getModel().setProperty("/busy", false);
+					}.bind(this));
+
+			},
+			onSelectServiceTypeDD: function () {
+				var sProductTypeFilter = new sap.ui.model.Filter({
+					path: "ProductGroup",
+					operator: sap.ui.model.FilterOperator.EQ,
+					value1: this.getModel().getProperty("/ModuleSearch/Header/ServiceTypeKey/")
+				});
+
+				var Filter = [];
+				Filter.push(sProductTypeFilter);
+				this.getModel().setProperty("/busy", true);
+				this.getAPI.oDataReadAPICall(this.getOwnerComponent().getModel("ZSSP_COMMON_SRV"), 'read', '/ZCDSV_SUBSERVICEVH/', null, Filter)
+					.then(function (oResponse) {
+						this.getModel().setProperty("/ModuleSearch/SelectSubServiceType/", oResponse.results);
+						this.getModel().setProperty("/busy", false);
+					}.bind(this)).catch(function (error) {
+						MessageBox.error(error.responseText);
+						this.getModel().setProperty("/busy", false);
+					}.bind(this));
+			},
+
 			handleBackPress: function () {
 				var oHistory, sPreviousHash;
 				oHistory = History.getInstance();

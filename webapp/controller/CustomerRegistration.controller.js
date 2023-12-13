@@ -27,9 +27,17 @@ sap.ui.define([
 			});
 		},
 		CountryF4: function () {
+			var sLanguageFilter = new sap.ui.model.Filter({
+				path: "Language",
+				operator: sap.ui.model.FilterOperator.EQ,
+				value1: "en"
+			});
+
+			var Filter = [];
+			Filter.push(sLanguageFilter);
 
 			this.getModel().setProperty("/busy", true);
-			this.getAPI.oDataReadAPICall(this.getOwnerComponent().getModel("ZSSP_USER_SRV"), 'read', '/A_CountryText/')
+			this.getAPI.oDataReadAPICall(this.getOwnerComponent().getModel("ZSSP_USER_SRV"), 'read', '/A_CountryText/', null, Filter)
 				.then(function (oResponse) {
 
 					this.getModel().setProperty("/CustomerRegistrationData/CountryF4/", oResponse.results);
@@ -65,9 +73,14 @@ sap.ui.define([
 				operator: sap.ui.model.FilterOperator.EQ,
 				value1: sUserName
 			});
+			var sLanguageFilter = new sap.ui.model.Filter({
+				path: "Language",
+				operator: sap.ui.model.FilterOperator.EQ,
+				value1: "EN"
+			});
 
 			var aUserFilter = [];
-			aUserFilter.push(sUserNameFilter);
+			aUserFilter.push(sUserNameFilter, sLanguageFilter);
 
 			return aUserFilter;
 

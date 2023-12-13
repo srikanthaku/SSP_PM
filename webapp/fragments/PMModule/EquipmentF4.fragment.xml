@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog resizable="false" contentHeight="40%" contentWidth="30%" id="selectDialog" title="Select PRN" growing="true"
+		growingThreshold="15" items="{path:'/PainterSet'}" liveChange="onLiveChange1" search=".onValueHelpSearch" confirm=".onValueHelpClose"
+		cancel=".onValueHelpClose1">
+		<StandardListItem title="{defaultFullName}" description="{userId}"/>
+	</SelectDialog>
+</core:FragmentDefinition>
