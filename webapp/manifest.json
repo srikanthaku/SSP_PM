@@ -101,6 +101,12 @@
 				"preload": true
 			},
 			"ZSSP_COMMON_SRV": {
+			    	"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Request",
+					"useBatch": false
+				},
 				"dataSource": "ZSSP_COMMON_SRV",
 				"preload": true
 			},

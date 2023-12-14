@@ -51,10 +51,10 @@ sap.ui.define([
 				oEve.getSource().getSelectedKey() === "" ? oEve.getSource().setValue(null) : "";
 
 			},
-			onSelectPlant1: function (oEve) {
+			onSelectPlant: function (oEve) {
 				var sKey = oEve.getSource().getSelectedKey();
 				this.getModel().setProperty("/busy", true);
-				this.getAPI.oDataReadAPICall(this.getOwnerComponent().getModel("ZSSP_COMMON_SRV"), 'read', '/ZCDSV_EQUIPMENTVH/')
+				this.getAPI.oDataReadAPICall(this.getOwnerComponent().getModel("ZSSP_COMMON_SRV"), 'read', '/ZCDSV_EQUIPMENTVH/?$top=5&$skip=1')
 					.then(function (oResponse) {
 
 						this.getModel().setProperty("/PMCreateRequest/EquipmentF4/", oResponse.results);
@@ -64,29 +64,43 @@ sap.ui.define([
 						this.getModel().setProperty("/busy", false);
 					}.bind(this));
 			},
-			onValueHelpRequest: function (oEvent) {
+			onValueHelpRequest: async function (oEvent) {
+				try {
+					if (!this.VDialog) {
+						this.VDialog = this.loadFragment({
+							name: "com.swcc.pm.SSP_PM.fragments.PMModule.EquipmentF4"
+						});
+					}
 
-				var oView = this.getView();
-
-				if (!this._pDialog) {
-					this._pDialog = Fragment.load({
-						id: oView.getId(),
-						name: "com.swcc.pm.SSP_PM.fragments.PMModule.EquipmentF4",
-						controller: this
-					}).then(function (oDialog) {
-						oView.addDependent(oDialog);
-						if (Device.system.desktop) {
-							oDialog.addStyleClass("sapUiSizeCompact");
-						}
-						return oDialog;
-					});
-				}
-
-				this._pDialog.then(function (oDialog) {
-
+					const oDialog = await this.VDialog;
+					if (Device.system.desktop) {
+						oDialog.addStyleClass("sapUiSizeCompact");
+					}
+					this._oVID = oDialog;
 					oDialog.open();
-				}.bind(this));
+
+					const urlParameters = {
+						"$skip": 1,
+						"$top": 10
+					};
+					const oResponse = await this.getAPI.oDataReadAPICall(
+						this.getOwnerComponent().getModel("ZSSP_COMMON_SRV"),
+						'read',
+						'/ZCDSV_EQUIPMENTVH',
+						null,
+						null,
+						urlParameters
+					);
+
+					const model = this.getModel();
+					model.setProperty("/PMCreateRequest/EquipmentF4/", oResponse.results);
+					model.setProperty("/busy", false);
+				} catch (error) {
+					MessageBox.error(error.responseText);
+					this.getModel().setProperty("/busy", false);
+				}
 			},
+
 			onValueHelpSearch: function (oEvent) {
 				var sValue = oEvent.getParameter("value");
 				var oFilter = new Filter(

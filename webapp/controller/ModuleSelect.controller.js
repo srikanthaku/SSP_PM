@@ -26,7 +26,7 @@ sap.ui.define([
 				});
 			},
 			getServiceTypeDD: function () {
-
+				this.oRouter.navTo("PMRequest");
 				var sProductTypeFilter = new sap.ui.model.Filter({
 					path: "ProductType",
 					operator: sap.ui.model.FilterOperator.EQ,
