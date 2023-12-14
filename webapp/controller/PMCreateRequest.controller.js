@@ -28,7 +28,8 @@ sap.ui.define([
 					PMCreateRequest: {
 						Header: {},
 						Attachment: [],
-						PlantF4: []
+						PlantF4: [],
+						WorkCenterF4: []
 					}
 				});
 			},
@@ -40,10 +41,49 @@ sap.ui.define([
 
 						this.getModel().setProperty("/PMCreateRequest/PlantF4/", oResponse.results);
 						this.getModel().setProperty("/busy", false);
+
 					}.bind(this)).catch(function (error) {
 						MessageBox.error(error.responseText);
 						this.getModel().setProperty("/busy", false);
 					}.bind(this));
+
+			},
+
+			WorkCenterF4: function () {
+				var sPlantFilter = new sap.ui.model.Filter({
+					path: "Plant",
+					operator: sap.ui.model.FilterOperator.EQ,
+					value1: this.getModel().getProperty("/PMCreateRequest/Header/Planplant/")
+				});
+
+				var sServiceProduct = new sap.ui.model.Filter({
+					path: "ServiceProduct",
+					operator: sap.ui.model.FilterOperator.EQ,
+					value1: this.getModel().getProperty("/PMCreateRequest/Header/Planplant/")
+				});
+
+				var Filter = [];
+				Filter.push(sPlantFilter);
+				this.getModel().setProperty("/busy", true);
+				this.getAPI.oDataReadAPICall(
+					this.getOwnerComponent().getModel("ZSSP_COMMON_SRV"),
+					'read',
+					'/ZCDSV_WORKCENTERVH',
+					null,
+					Filter,
+					null
+				).then(function (oResponse) {
+
+					this.getModel().setProperty("/PMCreateRequest/WorkCenterF4/", oResponse.results);
+					this.getModel().setProperty("/busy", false);
+
+				}.bind(this)).catch(function (error) {
+					MessageBox.error(error.responseText);
+					this.getModel().setProperty("/busy", false);
+				}.bind(this));
+			},
+			onSelectPlant: function () {
+				this.WorkCenterF4();
 
 			},
 			onCheckPlantVal: function (oEve) {
