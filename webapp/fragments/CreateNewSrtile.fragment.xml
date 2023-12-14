@@ -19,12 +19,12 @@
 					<ImageContent src="sap-icon://attachment-e-pub"/>
 				</TileContent>
 			</GenericTile>
-			<GenericTile class="sapUiSmallMargin tileLayout ssp-viewservice ssp-inactive" press="onPressViewAllRequest" header="{i18n>createbp}">
+			<GenericTile class="sapUiSmallMargin tileLayout ssp-viewservice ssp-inactive" press="onPressBpRequest" header="{i18n>createbp}">
 				<TileContent>
 					<ImageContent src="sap-icon://create-session"/>
 				</TileContent>
 			</GenericTile>
-			<GenericTile class="sapUiSmallMargin tileLayout ssp-viewservice ssp-inactive" press="onPressViewAllRequest" header="{i18n>createsla}">
+			<GenericTile class="sapUiSmallMargin tileLayout ssp-viewservice ssp-inactive" press="onPressSlaRequest" header="{i18n>createsla}">
 				<TileContent>
 					<ImageContent src="sap-icon://create"/>
 				</TileContent>
@@ -60,20 +60,23 @@
 			</GenericTile>
 		</FlexBox>
 	</VBox>
-	<!--	<viz:VizFrame uiConfig="{applicationSet:'fiori'}" height='100%' width="100%" vizType='donut'>
+	<!--	<viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}" height='100%' width="100%" vizType='donut'>
 		<viz:dataset>
-			<viz.data:FlattenedDataset data="{/VizDat}">
+			<viz.data:FlattenedDataset data="{/data}">
 				<viz.data:dimensions>
-					<viz.data:DimensionDefinition name="Store Name" value="{Store Name}"/>
+					<viz.data:DimensionDefinition name="Category" value="{Category}"/>
 				</viz.data:dimensions>
 				<viz.data:measures>
-					<viz.data:MeasureDefinition name="Revenue" value="{Revenue}"/>
+					<viz.data:MeasureDefinition name="Value" value="{Value}"/>
 				</viz.data:measures>
 			</viz.data:FlattenedDataset>
 		</viz:dataset>
 		<viz:feeds>
-			<viz.feeds:FeedItem uid="size" type="Measure" values="Revenue"/>
-			<viz.feeds:FeedItem uid="color" type="Dimension" values="Store Name"/>
+			<viz.feeds:FeedItem uid="size" type="Measure" values="Value"/>
+			<viz.feeds:FeedItem uid="color" type="Dimension" values="Category"/>
 		</viz:feeds>
+		<viz:dependents>
+			<viz:Popover id="idPopOver"></viz:Popover>
+		</viz:dependents>
 	</viz:VizFrame>-->
 </core:FragmentDefinition>

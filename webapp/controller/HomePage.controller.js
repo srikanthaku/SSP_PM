@@ -9,9 +9,7 @@ sap.ui.define([
 			onInit: function () {
 				this.oRouter = this.getRouter();
 				//this._createHeaderModel();
-
 			},
-
 			onPressCreateRequest: function () {
 				this.oRouter.navTo("AppHomePage");
 			},
@@ -22,6 +20,12 @@ sap.ui.define([
 			onback: function () {
 				this.getOwnerComponent().getTargets().display("LandingView");
 
+			},
+			onPressBpRequest: function () {
+				this.oRouter.navTo("CustomerRegistration");
+			},
+			onPressSlaRequest: function () {
+				this.oRouter.navTo("SlaCreation");
 			},
 
 			onSearch: function () {

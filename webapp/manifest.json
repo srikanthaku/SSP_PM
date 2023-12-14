@@ -161,10 +161,10 @@
 					"LandingView"
 				]
 			}, {
-				"name": "CustRegistration",
-				"pattern": "",
+				"name": "CustomerRegistration",
+				"pattern": "CustomerRegistration",
 				"target": [
-					"CustRegistration"
+					"CustomerRegistration"
 				]
 			}, {
 				"name": "HomePage",
@@ -172,7 +172,7 @@
 				"target": [
 					"HomePage"
 				]
-			},{
+			}, {
 				"name": "AppHomePage",
 				"pattern": "AppHomePage",
 				"target": [
@@ -189,6 +189,12 @@
 				"pattern": "PMRequest",
 				"target": [
 					"PMRequest"
+				]
+			}, {
+				"name": "ViewRequest",
+				"pattern": "ViewRequest",
+				"target": [
+					"ViewRequest"
 				]
 			}, {
 				"name": "PMRequestView",
@@ -228,7 +234,7 @@
 					"clearControlAggregation": false,
 					"viewName": "ViewRequest"
 				},
-				"CustRegistration": {
+				"CustomerRegistration": {
 					"viewType": "XML",
 					"transition": "slide",
 					"clearControlAggregation": false,
@@ -264,6 +270,13 @@
 					"clearControlAggregation": false,
 					"viewName": "PMViewRequest"
 				},
+				"ViewRequest": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "ViewRequest"
+				},
+
 				"notFound": {
 					"viewName": "NotFound"
 				}
