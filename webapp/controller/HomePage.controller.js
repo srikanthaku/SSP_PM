@@ -8,7 +8,32 @@ sap.ui.define([
 		return BaseController.extend("com.swcc.pm.SSP_PM.controller.HomePage", {
 			onInit: function () {
 				this.oRouter = this.getRouter();
-				//this._createHeaderModel();
+				this._createTileDataModel();
+				this.BPFlagCheckAPI();
+			},
+
+			BPFlagCheckAPI: function () {
+				debugger;
+
+				var sAPI = `/CheckUserSet(UserName='WT_POWER')`;
+
+				this.getAPI.oDataReadAPICall(this.getOwnerComponent().getModel("ZSSP_USER_SRV"), 'read', sAPI)
+					.then(function (oResponse) {
+						this.getModel().setProperty("/TileData/Header/", oResponse);
+						this.getModel().setProperty("/busy", false);
+					}.bind(this)).catch(function (error) {
+						MessageBox.error(error.responseText);
+						this.getModel().setProperty("/busy", false);
+					}.bind(this));
+
+			},
+			_createTileDataModel: function () {
+				this.getModel().setData({
+					busy: false,
+					TileData: {
+						Header: {}
+					}
+				});
 			},
 			onPressCreateRequest: function () {
 				this.oRouter.navTo("AppHomePage");
