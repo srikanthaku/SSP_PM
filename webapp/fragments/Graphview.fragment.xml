@@ -5,7 +5,7 @@
 		<layout:flexContent>
 			<viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}" height='100%' width="100%" vizType='column'>
 				<viz:dataset>
-					<viz.data:FlattenedDataset data="{/milk}">
+					<viz.data:FlattenedDataset data="{/VizDat}">
 						<viz.data:dimensions>
 							<viz.data:DimensionDefinition name="Week" value="{Week}"/>
 						</viz.data:dimensions>
