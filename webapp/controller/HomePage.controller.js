@@ -8,10 +8,28 @@ sap.ui.define([
 		return BaseController.extend("com.swcc.pm.SSP_PM.controller.HomePage", {
 			onInit: function () {
 				this.oRouter = this.getRouter();
+				var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+				oRouter.attachRouteMatched(function (oEvent) {
+					var sRouteName = oEvent.getParameter("name");
+
+					if (sRouteName === "Routeapp") {
+						this._createTileDataModel();
+						this.BPFlagCheckAPI();
+						// Restore the model to its initial state or any desired state
+						// 		var oModel = this.getModel(); // Replace 'YourModelName' with your model name
+
+						// 		// Restore your model here, for example:
+						// 		oModel.setProperty("/YourProperty", initialValue); // Replace 'YourProperty' and initialValue with your actual property and value
+					}
+				}, this);
 				this._createTileDataModel();
 				this.BPFlagCheckAPI();
 			},
 
+			_onObjectMatched: function () {
+				this._createTileDataModel();
+				this.BPFlagCheckAPI();
+			},
 			BPFlagCheckAPI: function () {
 				debugger;
 

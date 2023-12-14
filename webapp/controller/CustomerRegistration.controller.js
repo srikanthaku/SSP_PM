@@ -10,9 +10,21 @@ sap.ui.define([
 		onInit: function () {
 
 			this.oRouter = this.getRouter();
-			this.CountryF4();
+			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			oRouter.attachRouteMatched(function (oEvent) {
+				var sRouteName = oEvent.getParameter("name");
+
+				if (sRouteName === "CustomerRegistration") {
+					this.callDropDownAndModel();
+				}
+			}, this);
+			this.callDropDownAndModel();
+		},
+
+		callDropDownAndModel: function () {
 			this._customeRegistrationModel();
 			this.getModel().setSizeLimit(1000);
+			this.CountryF4();
 
 		},
 		_customeRegistrationModel: function () {

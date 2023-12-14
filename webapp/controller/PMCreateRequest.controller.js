@@ -51,20 +51,16 @@ sap.ui.define([
 				oEve.getSource().getSelectedKey() === "" ? oEve.getSource().setValue(null) : "";
 
 			},
-			onSelectPlant: function (oEve) {
-				var sKey = oEve.getSource().getSelectedKey();
-				this.getModel().setProperty("/busy", true);
-				this.getAPI.oDataReadAPICall(this.getOwnerComponent().getModel("ZSSP_COMMON_SRV"), 'read', '/ZCDSV_EQUIPMENTVH/?$top=5&$skip=1')
-					.then(function (oResponse) {
 
-						this.getModel().setProperty("/PMCreateRequest/EquipmentF4/", oResponse.results);
-						this.getModel().setProperty("/busy", false);
-					}.bind(this)).catch(function (error) {
-						MessageBox.error(error.responseText);
-						this.getModel().setProperty("/busy", false);
-					}.bind(this));
-			},
 			onValueHelpRequest: async function (oEvent) {
+				var sPlantFilter = new sap.ui.model.Filter({
+					path: "MaintenancePlanningPlant",
+					operator: sap.ui.model.FilterOperator.EQ,
+					value1: this.getModel().getProperty("/PMCreateRequest/Header/Planplant/")
+				});
+
+				var Filter = [];
+				Filter.push(sPlantFilter);
 				try {
 					if (!this.VDialog) {
 						this.VDialog = this.loadFragment({
@@ -83,12 +79,13 @@ sap.ui.define([
 						"$skip": 1,
 						"$top": 10
 					};
+
 					const oResponse = await this.getAPI.oDataReadAPICall(
 						this.getOwnerComponent().getModel("ZSSP_COMMON_SRV"),
 						'read',
 						'/ZCDSV_EQUIPMENTVH',
 						null,
-						null,
+						Filter,
 						urlParameters
 					);
 
