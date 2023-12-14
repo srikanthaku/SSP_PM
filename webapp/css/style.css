@@ -110,6 +110,7 @@
     display: flex;
     color: #0066cc;
     font-family: 'SWCC-4-Bold';
+    letter-spacing: 0.5px;
 }
 
 .ssp-tlbr-title span:after {
@@ -223,8 +224,26 @@
     font-weight: bold;
 }
 
+.ssp-tile .sapMGT:hover:not(.sapMGTPressActive):not(.sapMGTBackgroundImage),
+.ssp-tile .sapMGT:hover:not(.sapMGTPressActive):not(.sapMGTBackgroundImage) .sapMTextMaxLine,
+.ssp-newservice .sapMGTContent:hover {
+    background: #004687 !important;
+    color: #FFFFFF !important;
+}
+
+.ssp-module .sapMImageContentImageIcon.sapUiIcon .ssp-newservice .sapMGTContent:hover,
+.ssp-viewservice .sapMGTContent:hover {
+    background: none;
+}
+
 .ssp-open {
     background: rgb(187, 249, 18);
+    background: linear-gradient(180deg, rgba(187, 249, 18, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    border: 1px solid rgb(187, 249, 18);
+}
+
+.ssp-open.sapMGT:hover:not(.sapMGTPressActive):not(.sapMGTBackgroundImage) {
+    background: rgb(187, 249, 18) !important;
     background: linear-gradient(180deg, rgba(187, 249, 18, 1) 0%, rgba(255, 255, 255, 1) 100%);
     border: 1px solid rgb(187, 249, 18);
 }
@@ -235,9 +254,21 @@
     border: 1px solid rgb(231, 101, 0);
 }
 
+.ssp-progress.sapMGT:hover:not(.sapMGTPressActive):not(.sapMGTBackgroundImage) {
+    background: rgb(231, 101, 0) !important;
+    background: linear-gradient(180deg, rgba(187, 249, 18, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    border: 1px solid rgb(231, 101, 0);
+}
+
 .ssp-done {
     background: rgb(150, 150, 150);
     background: linear-gradient(180deg, rgba(150, 150, 150, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    border: 1px solid rgb(150, 150, 150);
+}
+
+.ssp-done.sapMGT:hover:not(.sapMGTPressActive):not(.sapMGTBackgroundImage) {
+    background: rgb(150, 150, 150) !important;
+    background: linear-gradient(180deg, rgba(187, 249, 18, 1) 0%, rgba(255, 255, 255, 1) 100%);
     border: 1px solid rgb(150, 150, 150);
 }
 
@@ -255,6 +286,23 @@
     font-size: 2.5rem;
     line-height: 8rem;
 }
+
+.sapMNCIconImage {
+    color: #FFFFFF;
+    text-shadow: #6c6b66 1px 0 5px;
+}
+
+.ssp-tile .sapMGTHdrTxt>.sapMText {
+    color: #004687;
+    font-family: 'SWCC-4-Bold';
+}
+
+.ssp-tile.ssp-progress .sapMGTHdrTxt>.sapMText {
+    color: #FFFFFF;
+    font-family: 'SWCC-4-Bold';
+    text-shadow: #FC0 1px 0 10px;
+}
+
 
 /*.ssp-vtl {
     border: 1px solid #0066cc;
