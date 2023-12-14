@@ -14,7 +14,7 @@ sap.ui.define([
 			},
 
 			onPressTile: function (oEvent) {
-				this.getOwnerComponent().getRouter().navTo("ModuleSelect");
+				this.oRouter.navTo("ModuleSelect");
 			}
 		})
 	})

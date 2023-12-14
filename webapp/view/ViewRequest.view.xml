@@ -24,16 +24,16 @@
 					<VBox>
 						<core:Fragment fragmentName="com.swcc.pm.SSP_PM.fragments.UserManagement.UserFilter" type="XML"/>
 					</VBox>
-					<IconTabBar id="idIconTabBar" select="" class="sapUiResponsiveContentPadding">
+					<!--<IconTabBar id="idIconTabBar" select="" class="sapUiResponsiveContentPadding">
 						<items>
-							<IconTabFilter icon="sap-icon://visits" iconColor="Negative" text="Pending Users" count="{oIconTabCountModel>/issueCount}">
+							<IconTabFilter icon="sap-icon://visits" iconColor="Negative" text="Pending Users" count="{oIconTabCountModel>/issueCount}">-->
 								<core:Fragment fragmentName="com.swcc.pm.SSP_PM.fragments.UserManagement.OpenRequest" type="XML"/>
-							</IconTabFilter>
+							<!--</IconTabFilter>
 							<IconTabFilter icon="sap-icon://employee-lookup" iconColor="Positive" text="Avaliable Users" count="{oIconTabCountModel>/issueCount}">
 								<core:Fragment fragmentName="com.swcc.pm.SSP_PM.fragments.UserManagement.ClosedRequest" type="XML"/>
 							</IconTabFilter>
 						</items>
-					</IconTabBar>
+					</IconTabBar>-->
 				</l:content>
 			</l:VerticalLayout>
 		</f:content>

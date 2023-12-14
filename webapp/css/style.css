@@ -175,6 +175,11 @@
     color: #ffffff;
 }
 
+.ssp-title .sapMBtnInner {
+    background: none;
+    border: none;
+}
+
 .ssp-form-bg .sapMInput .sapMInputBaseContentWrapper,
 .ssp-form-bg .sapMInputBase .sapMInputBaseInner,
 .ssp-form-bg .sapMInputBaseContentWrapper,

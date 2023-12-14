@@ -2,10 +2,11 @@ sap.ui.define([
 		"./BaseController",
 		"sap/ui/model/json/JSONModel",
 		"sap/ui/model/Filter",
-		"sap/ui/model/FilterOperator"
+		"sap/ui/model/FilterOperator",
+		"sap/ui/core/routing/History"
 	],
 
-	function (BaseController, JSONModel, Filter, FilterOperator) {
+	function (BaseController, JSONModel, Filter, FilterOperator, History) {
 		"use strict";
 		return BaseController.extend("com.swcc.pm.SSP_PM.controller.ViewRequest", {
 
@@ -24,6 +25,17 @@ sap.ui.define([
 						itemData: []
 					}
 				});
+			},
+			handleBackPress: function () {
+				var oHistory, sPreviousHash;
+				oHistory = History.getInstance();
+				sPreviousHash = oHistory.getPreviousHash();
+				if (sPreviousHash !== undefined) {
+					window.history.go(-1);
+				} else {
+					this.getRouter().navTo("HomePage", {}, true);
+				}
+
 			},
 
 			BPFlagCheckAPI: function () {

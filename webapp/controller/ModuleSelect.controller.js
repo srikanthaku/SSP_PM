@@ -26,7 +26,7 @@ sap.ui.define([
 				});
 			},
 			getServiceTypeDD: function () {
-				this.oRouter.navTo("PMRequest");
+
 				var sProductTypeFilter = new sap.ui.model.Filter({
 					path: "ProductType",
 					operator: sap.ui.model.FilterOperator.EQ,
@@ -60,6 +60,7 @@ sap.ui.define([
 					.then(function (oResponse) {
 						this.getModel().setProperty("/ModuleSearch/SelectSubServiceType/", oResponse.results);
 						this.getModel().setProperty("/busy", false);
+
 					}.bind(this)).catch(function (error) {
 						MessageBox.error(error.responseText);
 						this.getModel().setProperty("/busy", false);
@@ -79,15 +80,6 @@ sap.ui.define([
 			},
 			onback: function () {
 				this.getOwnerComponent().getTargets().display("LandingView");
-
-			},
-
-			onSelect: function (oEve) {
-
-				var sKey = oEve.getSource().getSelectedKey();
-				if (sKey === "1") {
-					this.oRouter.navTo("PMRequest");
-				}
 
 			},
 
