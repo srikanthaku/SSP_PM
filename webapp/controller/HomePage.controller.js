@@ -12,7 +12,7 @@ sap.ui.define([
 				oRouter.attachRouteMatched(function (oEvent) {
 					var sRouteName = oEvent.getParameter("name");
 
-					if (sRouteName === "Routeapp") {
+					if (sRouteName === "Routeapp" || sRouteName === "HomePage") {
 						this._createTileDataModel();
 						this.BPFlagCheckAPI();
 						// Restore the model to its initial state or any desired state
