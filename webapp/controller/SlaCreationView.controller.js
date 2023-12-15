@@ -14,6 +14,16 @@ sap.ui.define([
 
 			onInit: function () {
 				this.oRouter = this.getRouter();
+				this._SLARegistrationModel();
+			},
+			_SLARegistrationModel: function () {
+				this.getModel().setData({
+					busy: false,
+					SLARegistrationData: {
+						Header: {}
+					}
+
+				});
 			},
 			onCancel: function () {
 
@@ -28,8 +38,44 @@ sap.ui.define([
 
 			},
 
+			onSubmitBP: function () {
+				var oPayload = this.getModel().getProperty("/CustomerRegistrationData/Header/");
+				this.SubmitBPRegistration(oPayload);
+			},
+			SubmitSLARegistration: function (oPayload) {
+				this.getModel().setProperty("/busy", true);
+				this.getAPI.oDataAPICall(this.getOwnerComponent().getModel("ZSSP_USER_SRV"), 'create', '/SLARequestSet',
+						oPayload)
+					.then(function (oResponse) {
+
+						this._handleMessageBoxProceed(`SLA Request has been Created : ${oResponse.ReqID} `);
+						debugger;
+						this.getModel().setProperty("/CustomerRegistrationData/Header/", null);
+						this.getModel().setProperty("/busy", false);
+					}.bind(this)).catch(function (error) {
+						MessageBox.error(error.responseText);
+						this.getModel().setProperty("/busy", false);
+					}.bind(this));
+			},
+
 			onProceed: function () {
-				this._handleMessageBoxProceed("SLA Agreement has been done successfully");
+				var oPayload = {
+					"UserName": "JohnDoe123",
+					"P2_Represen": "JaneSmith456",
+					"P2_Rep_Pos": "Representative",
+					"P2_CorName": "CorporationX",
+					"P2_CorPos": "Manager",
+					"P2_CorEmail": "janesmith@corpx.com",
+					"P2_Ext": "1234",
+					"Chk_HR": true,
+					"Chk_FI": false,
+					"Chk_IT": true,
+					"Chk_TECH": false,
+					"Chk_SCM": true,
+					"Remarks": "Lorem ipsum dolor sit amet."
+				};
+				this.SubmitSLARegistration(oPayload);
+
 				//this.getOwnerComponent().getRouter().navTo("AppHomePage");
 
 			},
