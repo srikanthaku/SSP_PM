@@ -1,17 +1,10 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:fm="sap.ui.layout.form" xmlns:core="sap.ui.core">
-	<Table id="idProductsTable" sticky="ColumnHeaders,HeaderToolbar" inset="false" mode="None" items="{path : '/OpenItemRequestData/itemData'}"
-		class="ssp-request-Table">
+	<Table id="idProductsTable" sticky="ColumnHeaders,HeaderToolbar" inset="false" mode="None" items="" class="ssp-request-Table">
+		<!--	{path : '/OpenItemRequestData/itemData'}-->
 		<headerToolbar>
 			<OverflowToolbar>
-				<Title text="Requests" level="H2"/>
+				<Title level="H3" text="{i18n>viewreq}" class="ssp-tlbr-title"/>
 				<ToolbarSpacer/>
-				<OverflowToolbar>
-					<ToolbarSpacer/>
-				</OverflowToolbar>
-				<Button tooltip="Sort" icon="sap-icon://sort" press="handleSortButtonPressed"/>
-				<Button tooltip="Filter" icon="sap-icon://filter" press="handleFilterButtonPressed"/>
-				<Button tooltip="Group" icon="sap-icon://group-2" press="handleGroupButtonPressed"/>
-				<ToggleButton icon="sap-icon://menu" tooltip="Enable Custom Context Menu" press="onToggleContextMenu"/>
 			</OverflowToolbar>
 		</headerToolbar>
 		<infoToolbar>
@@ -23,39 +16,31 @@
 			<Column width="12em">
 				<Text text="Request ID"/>
 			</Column>
-			<Column minScreenWidth="Tablet" demandPopin="true">
-				<Text text="Date"/>
+			<Column width="12em">
+				<Text text="Request Type"/>
 			</Column>
 			<Column minScreenWidth="Tablet" demandPopin="true">
-				<Text text="First Name"/>
+				<Text text="Created On"/>
 			</Column>
 			<Column minScreenWidth="Tablet" demandPopin="true">
-				<Text text="Last Name"/>
+				<Text text="Service Product"/>
 			</Column>
 			<Column minScreenWidth="Tablet" demandPopin="true">
-				<Text text="Email"/>
+				<Text text="SLA"/>
 			</Column>
 			<Column minScreenWidth="Tablet" demandPopin="true">
-				<Text text="Mobile No"/>
-			</Column>
-			<Column minScreenWidth="Tablet" width="3.2em" demandPopin="true">
-				<Text text=""/>
-			</Column>
-			<Column minScreenWidth="Tablet" width="3.2em" demandPopin="true">
-				<Text text=""/>
+				<Text text="Price"/>
 			</Column>
 		</columns>
 		<items>
 			<ColumnListItem vAlign="Middle">
 				<cells>
-					<ObjectIdentifier text="{RequestID}"/>
-					<Text text="{Date}"/>
-					<Text text="{FirstName}"/>
-					<Text text="{LastName}"/>
-					<Text text="{Email}"/>
-					<Text text="{Phone}"/>
-					<Button icon="sap-icon://employee-approvals" class="swcc-pmy-btn" type="Accept" press="onApprove"/>
-					<Button type="Reject" class="swcc-sec-btn" icon="sap-icon://employee-rejections" press="onPress"/>
+					<Text text="876786"/>
+					<Text text="SLA"/>
+					<Text text="2023-11-20"/>
+					<Text text="Heavy Maintenance"/>
+					<Text text="swedfs"/>
+					<Text text="125SAR"/>
 				</cells>
 			</ColumnListItem>
 		</items>

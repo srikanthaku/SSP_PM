@@ -101,7 +101,7 @@
 				"preload": true
 			},
 			"ZSSP_COMMON_SRV": {
-			    	"settings": {
+				"settings": {
 					"defaultOperationMode": "Server",
 					"defaultBindingMode": "TwoWay",
 					"defaultCountMode": "Request",
@@ -203,6 +203,12 @@
 					"ViewRequest"
 				]
 			}, {
+				"name": "UserProfile",
+				"pattern": "UserProfile",
+				"target": [
+					"UserProfile"
+				]
+			}, {
 				"name": "PMRequestView",
 				"pattern": "PMRequestView",
 				"target": [
@@ -281,6 +287,12 @@
 					"transition": "slide",
 					"clearControlAggregation": false,
 					"viewName": "ViewRequest"
+				},
+				"UserProfile": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "UserProfile"
 				},
 
 				"notFound": {
