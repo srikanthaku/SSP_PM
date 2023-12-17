@@ -14,12 +14,16 @@ sap.ui.define([
 				debugger;
 				this.oRouter = this.getRouter();
 				this.getRouter().getRoute("PMRequest").attachPatternMatched(this._onObjectMatched, this);
+
 				this._createItemDataModel();
 				this.PlantF4();
 
 			},
 			_onObjectMatched: function () {
 				this._createItemDataModel();
+				var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
+				var sServiceProduct = oStorage.get("sSubServiceType");
+				this.getModel().setProperty("/ServiceProduct", sServiceProduct);
 
 			},
 			_createItemDataModel: function () {

@@ -9,10 +9,17 @@ sap.ui.define([
 		return BaseController.extend("com.swcc.pm.SSP_PM.controller.ModuleSelect", {
 			onInit: function () {
 				this.oRouter = this.getRouter();
+				this.getRouter().getRoute("ModuleSelect").attachPatternMatched(this._onObjectMatched, this);
 				this._createHeaderModel();
 				this.byId("idService").setSelectedKey("ZSSM");
 				this.getServiceTypeDD();
 				// this.testCPI_API();
+
+			},
+			_onObjectMatched: function () {
+				this._createHeaderModel();
+				this.byId("idService").setSelectedKey("ZSSM");
+				this.getServiceTypeDD();
 
 			},
 			_createHeaderModel: function () {
@@ -84,11 +91,44 @@ sap.ui.define([
 			},
 
 			onSearch: function () {
+				debugger;
 				// this.getModel().setProperty("/VisibleManagePttyCash", true);
 				// this.getModel().setProperty("/VisibleRecordProcessInvoice", true);
+				var sSubServiveType = this.getModel().getProperty("/ModuleSearch/Header/SUbServiceKey/");
+				//	var sServiceProduct = sSubServiveType.split("-")[1];
+				this.setDataLocalStaorage(sSubServiveType);
+				this.getModel().setProperty("/ServiceProduct/", sSubServiveType);
 				this.oRouter.navTo("PMRequest");
-				//	this.oRouter.navTo("LandingView");
 
+			},
+
+			setDataLocalStaorage: function (sVal) {
+				// Get access to local storage
+				var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
+
+				// Define your data object
+				// var payloadObject = {
+				// 	"UserName": "JohnDoe123",
+				// 	"P2_Represen": "JaneSmith456",
+				// 	"P2_Rep_Pos": "Representative",
+				// 	"P2_CorName": "CorporationX",
+				// 	// ... rest of your payload
+				// };
+
+				// Convert the object to string before storing
+				//		var jsonString = JSON.stringify(payloadObject);
+
+				// Store the data
+				oStorage.put("sSubServiceType", sVal);
+
+				// Retrieve the data
+				//	var retrievedData = oStorage.get("myDataKey");
+
+				// If you want to parse the retrieved data back to an object
+				// if (retrievedData) {
+				// 	var parsedData = JSON.parse(retrievedData);
+				// 	// Use the parsedData object as needed
+				// }
 			},
 
 			testCPI_API: function () {

@@ -5,18 +5,19 @@
 			columnsXL="4" singleContainerFullSize="true" labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12">
 			<fm:content>
 				<Toolbar>
-					<Title level="H3" text="{i18n>turbineplanned}" class="ssp-tlbr-title"/>
+					<Title level="H3" text="{/ServiceProduct/}" class="ssp-tlbr-title"/>
 					<ToolbarSpacer/>
 					<!--<Button icon="sap-icon://settings" press=".handleButtonPress"/>-->
 				</Toolbar>
 				<Label text="{i18n>serviceproduct}" required="true"/>
-				<ComboBox id="pm-serviceproduct" width="100%" placeholder="Enter Service Product" value="{/PMCreateRequest/Header/ZZMATNR/}"
-					valueState="None">
-					<items>
-						<core:Item key="Yes" text="Yes"/>
-						<core:Item key="No" text="No"/>
-					</items>
-				</ComboBox>
+				<!--<ComboBox id="pm-serviceproduct" width="100%" placeholder="Enter Service Product" value="{/PMCreateRequest/Header/ZZMATNR/}"-->
+				<!--	valueState="None">-->
+				<!--	<items>-->
+				<!--		<core:Item key="Yes" text="Yes"/>-->
+				<!--		<core:Item key="No" text="No"/>-->
+				<!--	</items>-->
+				<!--</ComboBox>-->
+				<Input value="{/ServiceProduct/}" showSuggestion="" enabled="false" showValueHelp="" valueHelpRequest=""/>
 				<Label text="{i18n>Description}" required="false"/>
 				<Input placeholder="Enter Description" value="{/PMCreateRequest/Header/MAKTX/}" showSuggestion="" showValueHelp="" valueHelpRequest=""/>
 				<Label text="{i18n>quantity}" required="true"/>
@@ -49,6 +50,15 @@
 				</ComboBox>
 				<Label text="{i18n>shortdescription}" required="true"/>
 				<Input placeholder="Allowed 40 Charcters" showSuggestion="" showValueHelp="" value="{/PMCreateRequest/Header/Descript/}" valueHelpRequest=""/>
+			</fm:content>
+		</fm:SimpleForm>
+	</VBox>
+	<VBox width="100%">
+		<fm:SimpleForm id="ssp-changerequest1" title="" layout="ResponsiveGridLayout" class="ssp-form-txtarea" columnsM="2" columnsL="3"
+			columnsXL="4" singleContainerFullSize="true" labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12">
+			<fm:content>
+				<Label text="{i18n>Description}" required="false"/>
+				<TextArea placeholder="" rows="5" cols="20" growing="true" growingMaxLines="7" height="6rem" width="100%"/>
 			</fm:content>
 		</fm:SimpleForm>
 	</VBox>

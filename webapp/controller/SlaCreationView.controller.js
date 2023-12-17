@@ -15,6 +15,7 @@ sap.ui.define([
 			onInit: function () {
 				this.oRouter = this.getRouter();
 				this._SLARegistrationModel();
+				this.getSLADetails();
 			},
 			_SLARegistrationModel: function () {
 				this.getModel().setData({
@@ -24,6 +25,21 @@ sap.ui.define([
 					}
 
 				});
+			},
+			getSLADetails: function () {
+				debugger;
+
+				var sAPI = `/BPRequestSet(UserName='WT_POWER')`;
+
+				this.getAPI.oDataReadAPICall(this.getOwnerComponent().getModel("ZSSP_USER_SRV"), 'read', sAPI)
+					.then(function (oResponse) {
+						this.getModel().setProperty("/SLARegistrationData/Header/", oResponse);
+						this.getModel().setProperty("/busy", false);
+					}.bind(this)).catch(function (error) {
+						MessageBox.error(error.responseText);
+						this.getModel().setProperty("/busy", false);
+					}.bind(this));
+
 			},
 			onCancel: function () {
 
