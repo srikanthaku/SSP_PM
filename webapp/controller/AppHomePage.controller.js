@@ -16,7 +16,7 @@ sap.ui.define([
 			onPressTile: function (oEvent) {
 				var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
 				var sVal = oEvent.getSource().getAdditionalTooltip();
-				oStorage.put("sServiceType", sVal);
+				oStorage.put("sMouleType", sVal);
 				this.oRouter.navTo("ModuleSelect");
 			}
 		})

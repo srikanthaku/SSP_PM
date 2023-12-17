@@ -48,10 +48,10 @@
 			<ComboBox id="idService" width="100%" enabled="false" valueState="None">
 				<items>
 					<core:Item key="ZSSM" text="Plant Maintenance"/>
-					<core:Item key="3" text="Human Resource"/>
-					<core:Item key="4" text="Information Technology"/>
-					<core:Item key="5" text="Plant Maintainance"/>
-					<core:Item key="6" text="Supply Chain"/>
+					<core:Item key="ZSSH" text="Human Resource"/>
+					<core:Item key="ZSSI" text="Information Technology"/>
+					<core:Item key="ZSSF" text="Finance"/>
+					<core:Item key="ZSSS" text="Supply Chain"/>
 				</items>
 			</ComboBox>
 			<Label text="{i18n>SelectServiceType}" required="true"/>

@@ -10,32 +10,32 @@
 					<!--<Button icon="sap-icon://settings" press=".handleButtonPress"/>-->
 				</Toolbar>
 				<Label text="{i18n>serviceproduct}" required="true"/>
-				<Input value="{/ServiceProduct/}" showSuggestion="" enabled="false" showValueHelp="" valueHelpRequest=""/>
+				<Input value="{/PMCreateRequest/Header/Material/}" showSuggestion="" enabled="false" showValueHelp="" valueHelpRequest=""/>
 				<Label text="{i18n>Description}" required="false"/>
 				<Input placeholder="Enter Description" value="{/ServiceDescription/}" enabled="false" showSuggestion="" showValueHelp="" valueHelpRequest=""/>
 				<Label text="{i18n>quantity}" required="true"/>
-				<Input placeholder="Enter Quantity" value="{/PMCreateRequest/Header/ZZMENGE/}" showSuggestion="" showValueHelp="" valueHelpRequest=""/>
+				<Input placeholder="Enter Quantity" value="{/PMCreateRequest/Header/MaterialQty/}" showSuggestion="" showValueHelp="" valueHelpRequest=""/>
 				<Label text="{i18n>baseunit}" required="false"/>
 				<Input id="baseunit" showSuggestion="" placeholder="Enter Base Unit" showValueHelp="" valueHelpRequest=""/>
 				<Label text="{i18n>priority}" required="true"/>
 				<ComboBox id="priority" width="100%" placeholder="Enter Priority" selectedKey="{/PMCreateRequest/Header/Priority/}" valueState="None">
 					<items>
-						<core:Item key="Regular" text="Regular"/>
-						<core:Item key="Emergency" text="Emergency"/>
-						<core:Item key="Urgent" text="Urgent"/>
+						<core:Item key="1" text="Very High"/>
+						<core:Item key="2" text="High"/>
+						<core:Item key="3" text="Medium"/>
+						<core:Item key="4" text="Low"/>
 					</items>
 				</ComboBox>
 				<Label text="{i18n>maintenanceorder}" required="false"/>
 				<Input placeholder="Enter Maintenance Order" showSuggestion="" showValueHelp="" valueHelpRequest=""/>
 				<Label text="{i18n>plant}" required="true"/>
 				<ComboBox width="100%" change="onCheckPlantVal" selectionChange="onSelectPlant" valueState="None" placeholder="Select Plant"
-					selectedKey="{/PMCreateRequest/Header/Planplant/}" items="{/PMCreateRequest/PlantF4/}">
+					selectedKey="{/PMCreateRequest/Header/Plant/}" items="{/PMCreateRequest/PlantF4/}">
 					<core:Item key="{Plant}" text="{Plant} - {PlantName}"/>
 				</ComboBox>
 				<Label text="{i18n>equipment}"/>
-				<Input id="idCustName" enabled="{= ${/PMCreateRequest/Header/Planplant/} !== null}" required="true" width="100%"
-					placeholder="Enter Equipment" valueHelpOnly="true" showValueHelp="true" valueHelpRequest="onValueHelpRequest"
-					value="{HeaderDetailsModel>/CustomerName}"/>
+				<Input enabled="{= ${/PMCreateRequest/Header/Plant/} !== null}" required="true" width="100%" placeholder="Enter Equipment"
+					valueHelpOnly="true" showValueHelp="true" valueHelpRequest="onValueHelpRequest" value="{/PMCreateRequest/Header/Equipment}"/>
 				<Label text="{i18n>workcenter}" required="true"/>
 				<ComboBox width="100%" valueState="None" placeholder="Select Work Center" selectedKey="{/PMCreateRequest/Header/PmWkctr/}"
 					items="{/PMCreateRequest/WorkCenterF4/}">
@@ -51,7 +51,8 @@
 			columnsXL="4" singleContainerFullSize="true" labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12">
 			<fm:content>
 				<Label text="{i18n>Remarks}" required="false"/>
-				<TextArea placeholder="" rows="5" cols="20" growing="true" growingMaxLines="7" height="6rem" width="100%"/>
+				<TextArea placeholder="" rows="5" cols="20" text="{/PMCreateRequest/Header/NotifText}" growing="true" growingMaxLines="7" height="6rem"
+					width="100%"/>
 			</fm:content>
 		</fm:SimpleForm>
 	</VBox>

@@ -25,7 +25,7 @@ sap.ui.define([
 					sServiceProductLocalVal = oStorage.get("sSubServiceType");
 				var sServiceProduct = sServiceProductLocalVal.split("_")[0];
 				var sServiceDescription = sServiceProductLocalVal.split("_")[1];
-				this.getModel().setProperty("/ServiceProduct", sServiceProduct);
+				this.getModel().setProperty("/PMCreateRequest/Header/Material", sServiceProduct);
 				this.getModel().setProperty("/ServiceDescription", sServiceDescription);
 
 			},
@@ -144,6 +144,22 @@ sap.ui.define([
 					this.getModel().setProperty("/busy", false);
 				}
 			},
+			_handleSelectEquipment: function (oEvent) {
+				var selectedVendorDes = oEvent.getSource().getAggregation("attributes");
+				var sEqipmentNo = selectedVendorDes[0].getProperty('text');
+				this.getModel().setProperty("/PMCreateRequest/Header/Equipment/", sEqipmentNo);
+				// var oFilter = new sap.ui.model.Filter("LIFNR", sap.ui.model.FilterOperator.Contains, "");
+				// var oFilter1 = new sap.ui.model.Filter("NAME1", sap.ui.model.FilterOperator.Contains, "");
+				// var comFil = new sap.ui.model.Filter([oFilter, oFilter1]);
+				// var oList = this.getView().byId("idlistVendorID");
+				// this.getView().getModel("settingsModel").setProperty("/VendorLIFNR", VendorLIFNR);
+				// this.getView().getModel("settingsModel").setProperty("/VendorNAME1", VendorNAME1);
+				// this.getView().byId("idinputVendorID").setValue(VendorLIFNR);
+				// this.getView().byId("idinputVendorName").setValue(VendorNAME1);
+				// this.getView().byId("idsearchVendorID").setValue(null);
+				// oList.getBinding("items").filter(comFil, sap.ui.model.FilterType.Application);
+				this._oVID.close();
+			},
 
 			onValueHelpSearch: function (oEvent) {
 				var sValue = oEvent.getParameter("value");
@@ -161,16 +177,16 @@ sap.ui.define([
 				oEvent.getSource().getBinding("items").filter([oFilter]);
 			},
 			PMCreateaRequestAPI: function (oPayload) {
-
-				var oPayload = {
-					"MaterialType": "ZT",
-					"Equipment": "10000131",
-					"Customer": "300113",
-					"Descript": "TEST STS NOTIFICATION FOR INSTRUMENT",
-					"NotifText": {
-						"Line": "Testing long text"
-					}
-				};
+				var oPayload = this.getModel().getProperty("/PMCreateRequest/Header/");
+				// var oPayload = {
+				// 	"Material": "ZT",
+				// 	"Equipment": "10000131",
+				// 	"Customer": "300113",
+				// 	"Descript": "TEST STS NOTIFICATION FOR INSTRUMENT",
+				// 	"NotifText": {
+				// 		"Line": "Testing long text"
+				// 	}
+				// };
 				this.getModel().setProperty("/busy", true);
 				this.getAPI.oDataAPICall(this.getOwnerComponent().getModel("ZSSP_COMMON_SRV"), 'create', '/ServNotificationSet',
 						oPayload)

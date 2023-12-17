@@ -11,8 +11,10 @@ sap.ui.define([
 			onInit: function () {
 				this.oRouter = this.getRouter();
 				this.getRouter().getRoute("ModuleSelect").attachPatternMatched(this._onObjectMatched, this);
+				var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
+				var sModuleType = oStorage.get("sMouleType");
 				this._createHeaderModel();
-				this.byId("idService").setSelectedKey("ZSSM");
+				this.byId("idService").setSelectedKey(sModuleType);
 				this.getServiceTypeDD();
 				// this.testCPI_API();
 
@@ -20,8 +22,8 @@ sap.ui.define([
 			_onObjectMatched: function () {
 				this._createHeaderModel();
 				var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
-				var sServiceType = oStorage.get("sServiceType");
-				this.byId("idService").setSelectedKey("ZSSM");
+				var sModuleType = oStorage.get("sMouleType");
+				this.byId("idService").setSelectedKey(sModuleType);
 				this.getServiceTypeDD();
 
 			},
