@@ -62,7 +62,7 @@
 			<Label text="{i18n>SelectSubService}" required="true"/>
 			<ComboBox id="idsubservice" width="100%" valueState="None" selectionChange="onSelectSubServiceTypeDD" placeholder="Select SubService"
 				selectedKey="{/ModuleSearch/Header/SUbServiceKey/}" items="{/ModuleSearch/SelectSubServiceType/}">
-				<core:ListItem key="{ProductGroup}-{ProductName}" text="{ProductName}"/>
+				<core:ListItem key="{Product}_{ProductName}" text="{ProductName}"/>
 			</ComboBox>
 			<Button text="Search" type="Default" press="onSearch" width="65%" class="sapUiTinyMarginBegin sapUiContentPadding swcc-pmy-btn"/>
 		</fm:SimpleForm>

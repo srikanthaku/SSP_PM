@@ -1,10 +1,11 @@
 sap.ui.define([
 		"./BaseController",
 		"sap/ui/model/json/JSONModel",
-		"sap/ui/core/routing/History"
+		"sap/ui/core/routing/History",
+		"sap/m/MessageBox"
 	],
 
-	function (BaseController, JSONModel, History) {
+	function (BaseController, JSONModel, History, MessageBox) {
 		"use strict";
 		return BaseController.extend("com.swcc.pm.SSP_PM.controller.ModuleSelect", {
 			onInit: function () {
@@ -18,6 +19,8 @@ sap.ui.define([
 			},
 			_onObjectMatched: function () {
 				this._createHeaderModel();
+				var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
+				var sServiceType = oStorage.get("sServiceType");
 				this.byId("idService").setSelectedKey("ZSSM");
 				this.getServiceTypeDD();
 

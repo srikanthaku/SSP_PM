@@ -14,6 +14,11 @@ sap.ui.define([
 
 			onInit: function () {
 				this.oRouter = this.getRouter();
+				this.getRouter().getRoute("SlaCreation").attachPatternMatched(this._onObjectMatched, this);
+				this._SLARegistrationModel();
+				this.getSLADetails();
+			},
+			_onObjectMatched: function () {
 				this._SLARegistrationModel();
 				this.getSLADetails();
 			},
@@ -21,7 +26,8 @@ sap.ui.define([
 				this.getModel().setData({
 					busy: false,
 					SLARegistrationData: {
-						Header: {}
+						Header: {},
+						CustomData: {}
 					}
 
 				});

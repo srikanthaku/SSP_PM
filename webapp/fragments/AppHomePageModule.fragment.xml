@@ -12,7 +12,7 @@
 					<ImageContent src=" sap-icon://add-document"/>
 				</TileContent>
 			</GenericTile>
-			<GenericTile class=" sapUiSmallMargin tileLayout ssp-module" press=" onPressTile" header=" {i18n>PM}">
+			<GenericTile additionalTooltip="ZSSM" class="sapUiSmallMargin tileLayout ssp-module" press=" onPressTile" header=" {i18n>PM}">
 				<TileContent>
 					<ImageContent src="sap-icon://attachment-e-pub"/>
 				</TileContent>

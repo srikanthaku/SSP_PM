@@ -14,16 +14,19 @@ sap.ui.define([
 				debugger;
 				this.oRouter = this.getRouter();
 				this.getRouter().getRoute("PMRequest").attachPatternMatched(this._onObjectMatched, this);
-
 				this._createItemDataModel();
 				this.PlantF4();
 
 			},
 			_onObjectMatched: function () {
 				this._createItemDataModel();
-				var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
-				var sServiceProduct = oStorage.get("sSubServiceType");
+				this.PlantF4();
+				var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local),
+					sServiceProductLocalVal = oStorage.get("sSubServiceType");
+				var sServiceProduct = sServiceProductLocalVal.split("_")[0];
+				var sServiceDescription = sServiceProductLocalVal.split("_")[1];
 				this.getModel().setProperty("/ServiceProduct", sServiceProduct);
+				this.getModel().setProperty("/ServiceDescription", sServiceDescription);
 
 			},
 			_createItemDataModel: function () {
@@ -160,7 +163,7 @@ sap.ui.define([
 			PMCreateaRequestAPI: function (oPayload) {
 
 				var oPayload = {
-					"NotifType": "ZT",
+					"MaterialType": "ZT",
 					"Equipment": "10000131",
 					"Customer": "300113",
 					"Descript": "TEST STS NOTIFICATION FOR INSTRUMENT",
