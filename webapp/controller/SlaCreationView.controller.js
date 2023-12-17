@@ -81,21 +81,8 @@ sap.ui.define([
 			},
 
 			onProceed: function () {
-				var oPayload = {
-					"UserName": "JohnDoe123",
-					"P2_Represen": "JaneSmith456",
-					"P2_Rep_Pos": "Representative",
-					"P2_CorName": "CorporationX",
-					"P2_CorPos": "Manager",
-					"P2_CorEmail": "janesmith@corpx.com",
-					"P2_Ext": "1234",
-					"Chk_HR": true,
-					"Chk_FI": false,
-					"Chk_IT": true,
-					"Chk_TECH": false,
-					"Chk_SCM": true,
-					"Remarks": "Lorem ipsum dolor sit amet."
-				};
+
+				var oPayload = this.getModel().getProperty("/SLARegistrationData/CustomData/");
 				this.SubmitSLARegistration(oPayload);
 
 				//this.getOwnerComponent().getRouter().navTo("AppHomePage");

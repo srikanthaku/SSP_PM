@@ -8,15 +8,15 @@
 					<Title level="H3" text="{i18n>customerinformation}" class="ssp-tlbr-title"/>
 					<ToolbarSpacer/>
 				</Toolbar>
-				<Label text="{i18n>PhoneNumber}" required="true"/>
+				<Label text="{i18n>PhoneNumber}"/>
 				<Input enabled="false" maxLength="10" showClearIcon="true" value="{/SLARegistrationData/Header/PhoneNo/}"/>
 				<Label text="{i18n>customerid}" required="true"/>
 				<Input value="{/SLARegistrationData/Header/UserName/}"/>
-				<Label text="{i18n>crno}" required="false"/>
+				<Label text="{i18n>crno}"/>
 				<Input enabled="false" value="{/SLARegistrationData/Header/Cr_No/}"/>
-				<Label text="{i18n>EmailID}" required="true"/>
+				<Label text="{i18n>EmailID}"/>
 				<Input value="{/SLARegistrationData/Header/Email/}" enabled="false"/>
-				<Label text="{i18n>customername}" required="false"/>
+				<Label text="{i18n>customername}"/>
 				<Input value="{/SLARegistrationData/Header/Company/}" enabled="false"/>
 			</fm:content>
 		</fm:SimpleForm>
@@ -36,17 +36,17 @@
 					change="onTimeTyeChange">
 					<core:ListItem key="{externalCode}" text="{label_defaultValue}" additionalText="{externalCode}"/>
 				</Select>-->
-				<Label text="{i18n>street}" required="false"/>
+				<Label text="{i18n>street}"/>
 				<Input enabled="false" value="{/SLARegistrationData/Header/Stras/}"/>
 				<Label text="{i18n>Region}" required="false"/>
 				<Input value="{SLARegistrationData/Header/Regio}" enabled="false"/>
-				<Label text="{i18n>POBOX}" required="true"/>
+				<Label text="{i18n>POBOX}"/>
 				<Input enabled="false" value="{/SLARegistrationData/Header/PoBox/}"/>
-				<Label text="{i18n>City}" required="false"/>
+				<Label text="{i18n>City}"/>
 				<Input value="{/SLARegistrationData/Header/Ort01/}" enabled="false"/>
-				<Label text="{i18n>country}" required="true"/>
+				<Label text="{i18n>country}"/>
 				<Input value="{/SLARegistrationData/Header/Land1/}" enabled="false"/>
-				<Label text="{i18n>postalcode}" required="true"/>
+				<Label text="{i18n>postalcode}"/>
 				<Input enabled="false" value="{/SLARegistrationData/Header/Pstlz/}"/>
 			</fm:content>
 		</fm:SimpleForm>
@@ -60,9 +60,9 @@
 					<ToolbarSpacer/>
 				</Toolbar>
 				<Label text="{i18n>reprenname}" required="true"/>
-				<Input placeholder="Representative Name" value="{/SLARegistrationData/CustomData/P2_Represen/}"/>
+				<Input placeholder="Enter Representative Name" value="{/SLARegistrationData/CustomData/P2_Represen/}"/>
 				<Label text="{i18n>repreposisition}" required="false"/>
-				<Input placeholder="Representative Position" value="{/SLARegistrationData/CustomData/P2_Rep_Pos/}"/>
+				<Input placeholder="Enter Representative Position" value="{/SLARegistrationData/CustomData/P2_Rep_Pos/}"/>
 			</fm:content>
 		</fm:SimpleForm>
 	</VBox>
@@ -75,13 +75,13 @@
 					<ToolbarSpacer/>
 				</Toolbar>
 				<Label text="{i18n>correspondancename}" required="true"/>
-				<Input placeholder="Correspondance Name" value="{/SLARegistrationData/CustomData/P2_CorName/}"/>
+				<Input placeholder="Enter Correspondance Name" value="{/SLARegistrationData/CustomData/P2_CorName/}"/>
 				<Label text="{i18n>correspondanceposisition}" required="true"/>
-				<Input placeholder="Correspondance Position" value="{/SLARegistrationData/CustomData/P2_CorName/}"/>
+				<Input placeholder="Enter Correspondance Position" value="{/SLARegistrationData/CustomData/P2_CorName/}"/>
 				<Label text="{i18n>correspondanceemail}" required="true"/>
-				<Input placeholder="Correspondance Email" value="{/SLARegistrationData/CustomData/P2_CorEmail/}"/>
+				<Input placeholder="Enter Correspondance Email" value="{/SLARegistrationData/CustomData/P2_CorEmail/}"/>
 				<Label text="{i18n>correspondanceext}" required="true"/>
-				<Input placeholder="Correspondance Ext" value="{/SLARegistrationData/CustomData/P2_CorPos/}"/>
+				<Input placeholder="Enter Correspondance Ext" value="{/SLARegistrationData/CustomData/P2_CorPos/}"/>
 			</fm:content>
 		</fm:SimpleForm>
 	</VBox>
